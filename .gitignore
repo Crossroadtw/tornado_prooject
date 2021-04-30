@@ -1,0 +1,17 @@
+*.DS_Store
+.idea
+logs
+*.pyc
+*.log*
+*.tar.gz
+dump.rdb
+**/migrations/*
+!**/migrations/__init__.py
+
+*.mmdb
+*/static/*
+!*/static/.keep
+
+db.sqlite3
+
+conf/kafka_conf.py

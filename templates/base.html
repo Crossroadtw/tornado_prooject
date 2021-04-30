@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ static_url('base.css') }}">
+    {% block head%}
+    {% end%}
+    {% block title%}
+    {% end%}
+</head>
+<body>
+{% block nav %}
+<div class="avatar">
+    <div class="mune-container">
+        <img title="双击返回主页;单击下拉菜单" id="avatar-img" src="{{ static_url('100.jpg') }}"/>
+        <div class="menu">
+            <ul id="menu-ul">
+                {% if current_user%}
+                <li><a href="/new_article">发布新文章</a></li>
+                {% else%}
+                <form action="/login" method="POST">
+                    <li><input name="username" type="text"></li>
+                    <li><input name="password" type="password"></li>
+                    <li><input type="submit"></li>
+                </form>
+                {% end%}
+            </ul>
+        </div>
+    </div>
+</div>
+{% end%}
+{% block content%}
+{% end%}
+
+{% block footer%}
+<footer class="footer"><sapn style="font-weight: bold">@2021</sapn> Chione © 纳米技术栈 | 赣ICP备20000338号</footer>
+{% end%}
+<script src="{{ static_url('base.js') }}"></script>
+{% block scripts%}
+{% end%}
+</body>
+</html>
