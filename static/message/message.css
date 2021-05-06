@@ -1,0 +1,51 @@
+    .life-words {
+        left: 45vw;
+        text-align: center;
+        color: transparent;
+        font-size: 2rem;
+        background: linear-gradient(to right, #f4f5f7,black, #f4f5f7);
+        -webkit-background-clip: text;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        animation: move 2s linear infinite;
+        max-width: 150px
+    }
+
+    @keyframes move {
+        0% {
+            background-position: -500%;
+        }
+        100% {
+            background-position: 500%;
+        }
+
+
+    }
+    .button_msg {
+        float: right;
+        text-align: center;
+        padding: 8px 50px;
+        border-width: 0px;
+        border-radius: 5px;
+        color: white;
+        background-color: #b69269;
+        transition: 0.3s;
+        z-index: 1;
+    }
+    .input {
+        display: flex;
+        flex-direction: column;
+    }
+    input, textarea {
+        width: auto;
+        padding: 8px 10px;
+        margin: 3px 8px 16px 8px;
+        background-color: rgba(222, 239, 248, 0.877);
+        border: 0px transparent;
+        border-radius: 5px;
+        color: rgb(97, 4, 184);
+        font-size: 16px;
+        word-break: break-all;
+        hyphens: auto;
+        z-index: 1;
+    }

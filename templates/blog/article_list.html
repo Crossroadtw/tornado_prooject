@@ -1,0 +1,55 @@
+{% extends '../base.html'%}
+
+{% block head%}
+<link rel="stylesheet" href="{{ static_url('blog/blog.css') }}">
+
+<style>
+    code {
+        display: none;
+    }
+</style>
+{% end%}
+
+{% block title%}
+<title>文章列表</title>
+{% end%}
+
+
+{% block content%}
+<section>
+    <div class="acticles">
+        {% if current_user%}
+        <form action="/article" method="POST" enctype="multipart/form-data">
+            <input accept=".md" name="article_file" type="file">
+            <input type="submit" value="上传">
+        </form>
+        {% end%}
+        {% for article in articles %}
+        <article class="article">
+            {% if current_user%}
+            <h1><a style="float: right" href="/article/delete?id={{ article['_id'] }}">X</a></h1>
+            {% end%}
+            <div class="title">
+                <h1><a href="/article/detail?id={{ article['_id'] }}">{{ article['filename'] }}</a></h1>
+            </div>
+            <div class="detail">
+                <strong>发布时间: </strong><span>{{ article['file_creat'] }}</span>
+
+            </div>
+            <div class="content">
+                <div>
+                    <p>{% raw article['file_body'] %}</p>
+                </div>
+            </div>
+        </article>
+
+        {% end %}
+
+    </div>
+
+</section>
+{% end%}
+
+{% block scripts%}
+<script src="{{ static_url('blog/blog.js') }}"></script>
+{% end%}

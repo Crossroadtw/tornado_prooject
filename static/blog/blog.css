@@ -192,10 +192,11 @@
 
 .article {
     box-shadow: 0 10px 30px -2px rgba(10, 16, 34, .1);
-    /*border: 1px black solid;*/
-    height: 25vh;
+    height: auto;
+    max-height: 25vh;
     width: 50vw;
     text-align: center;
+    word-wrap:break-word;
     border-radius: 2rem;
     margin: 2rem auto;
     overflow: hidden;

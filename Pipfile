@@ -11,6 +11,8 @@ pyyaml = "*"
 motor = "*"
 redis = "*"
 pyjwt = "*"
+markdown = "*"
+user-agents = "*"
 
 [requires]
 python_version = "3.8.1"

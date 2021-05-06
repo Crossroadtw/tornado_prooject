@@ -25,7 +25,7 @@ class Application(tornado.web.Application):
         self.db = db
         self.redis_db = redis_cur
         urls = self.get_urls()
-        print('urls', urls)
+        # print('urls', urls)
         for url in urls:
             print('http://{}:{}'.format(SETTING.HOST, SETTING.PORT) + url[0])
         settings = dict(

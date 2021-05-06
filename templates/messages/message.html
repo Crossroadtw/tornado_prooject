@@ -1,0 +1,82 @@
+{% extends '../base.html'%}
+
+{% block head%}
+<link rel="stylesheet" href="{{ static_url('blog/blog.css') }}">
+<link rel="stylesheet" href="{{ static_url('message/message.css') }}">
+
+<style>
+    code {
+        display: none;
+    }
+    .article {
+        text-align: left;
+    }
+    form {
+    box-shadow: 0 10px 30px -2px rgba(10, 16, 34, .1);
+    height: auto;
+    max-height: 25vh;
+    width: 50vw;
+    text-align: left;
+    word-wrap:break-word;
+    border-radius: 2rem;
+    margin: 2rem auto;
+    overflow: hidden;
+    padding: 3rem;
+    background: #fff;
+    }
+</style>
+{% end%}
+
+{% block title%}
+<title>留言板</title>
+{% end%}
+
+
+{% block content%}
+<section>
+    <div class="acticles">
+        <div class="message_form" style="width: auto;height: auto">
+            <h1 style="text-align: center;font-size: 36px">留言板</h1>
+            <div style="text-align: center;padding-top: 7px"><img src="{{ static_url('message/s.gif') }}"></div>
+            <form action="/messages" method="POST">
+                <div class="life-words">记录你的故事!</div>
+                <div class="input">
+                    <input class="name" name="username" type="text" placeholder="昵称">
+                </div>
+                <div class="input">
+                    <textarea class="comment" id="message" name="message" placeholder="这里写留言"></textarea>
+                </div>
+                <label><input class="button_msg" type="submit"></label>
+            </form>
+        </div>
+        {% for message in messages %}
+        <article class="article">
+            <h1><a style="float: right" href="/messages/delete?id={{ message['_id'] }}">X</a></h1>
+            {% if current_user%}
+            <h1><a style="float: right" href="/messages/delete?id={{ message['_id'] }}">X</a></h1>
+            {% end%}
+            <div class="title" style="color: #2aa198">
+                <h1>{{ message['msg_name'] }}</h1>
+            </div>
+            <div class="detail" style="color: rgba(182,189,4,0.59)">
+                <strong>时间: </strong><span >{{ message['msg_time'] }}</span>
+                <strong style="padding-left: 10px">平台: </strong><span>{{ message['msg_platform'] }}</span>
+
+            </div>
+            <div class="content" style="text-indent:2em">
+                <div>
+                    <p>{% raw message['msg_body'] %}</p>
+                </div>
+            </div>
+        </article>
+
+        {% end %}
+
+    </div>
+
+</section>
+{% end%}
+
+{% block scripts%}
+<script src="{{ static_url('blog/blog.js') }}"></script>
+{% end%}

@@ -9,7 +9,7 @@ from utils.jwt_authentication import generate_token
 class MainHandler(BaseHandler, ABC):
 
     async def get(self):
-        await self.render("article/index.html", current_user=self.current_user)
+        await self.render("blog/index.html", current_user=self.current_user)
 
 
 class Login(BaseHandler, ABC):
@@ -18,7 +18,7 @@ class Login(BaseHandler, ABC):
         username = self.get_body_argument('username')
         password = self.get_body_argument('password')
         if not all([username, password]):
-            self.redirect("/")
+            return self.redirect("/")
         # 密码哈希
         p = hashlib.md5()
         p.update(password.encode())

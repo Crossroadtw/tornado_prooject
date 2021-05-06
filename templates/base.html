@@ -17,6 +17,7 @@
             <ul id="menu-ul">
                 {% if current_user%}
                 <li><a href="/new_article">发布新文章</a></li>
+                <li><a href="/logout">退出登录</a></li>
                 {% else%}
                 <form action="/login" method="POST">
                     <li><input name="username" type="text"></li>
@@ -33,7 +34,7 @@
 {% end%}
 
 {% block footer%}
-<footer class="footer"><sapn style="font-weight: bold">@2021</sapn> Chione © 纳米技术栈 | 赣ICP备20000338号</footer>
+<footer class="footer"><sapn style="font-weight: bold">@2021</sapn> Chione © 纳米技术栈 | 京ICP备2021007295号</footer>
 {% end%}
 <script src="{{ static_url('base.js') }}"></script>
 {% block scripts%}
