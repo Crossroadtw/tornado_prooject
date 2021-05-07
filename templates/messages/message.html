@@ -51,7 +51,6 @@
         </div>
         {% for message in messages %}
         <article class="article">
-            <h1><a style="float: right" href="/messages/delete?id={{ message['_id'] }}">X</a></h1>
             {% if current_user%}
             <h1><a style="float: right" href="/messages/delete?id={{ message['_id'] }}">X</a></h1>
             {% end%}
