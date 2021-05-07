@@ -1,0 +1,35 @@
+{% extends '../base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ static_url('message/chat.css') }}">
+{% end %}
+{% block title %}
+<title>聊天室</title>
+{% end %}
+
+{% block content %}
+
+<div>
+    <div class="intro">
+        <h5>嘿,在这里你可以直接跟我聊天哦(⊙o⊙) <button id="shake_me">抖一抖</button></h5>
+
+    </div>
+    <div class="char_container">
+        <div class="show_message">
+            {% for message in messages %}
+            <div class="message">{{ message['text'] }}<small>{{ message['time'] }}</small></div>
+            {% end %}
+        </div>
+
+        <div class="send_message">
+            <input id="send_input">
+            <button id="send_button">发送</button>
+            <small>  当前聊天人数:<span id="chat_num">{{ chat_num }}</span></small>
+        </div>
+    </div>
+</div>
+
+{% end %}
+
+{% block scripts %}
+<script src="{{ static_url('message/chat.js') }}"></script>
+{% end %}

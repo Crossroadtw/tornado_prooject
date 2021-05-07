@@ -1,0 +1,36 @@
+DEBUG: False
+PORT: 8899
+HOST: 127.0.0.1
+
+# mysql配置
+MYSQL_HOST: 127.0.0.1
+MYSQL_PORT: 3306
+MYSQL_DB: # 数据库名字
+MYSQL_USERNAME: # 数据库号
+MYSQL_PASSWORD: # 数据库密码
+
+# mongo配置
+#MONGO_USERNAME: # mongo号，有些不需要
+#MONGO_PASSWORD: # mongo密码，有些不需要
+MONGO_DATABASE: # mongo集合名
+MONGO_HOST: # mongo地址
+MONGO_POORT: # mongo端口
+
+# 邮箱配置
+SMTP_SERVER: # 邮箱地址
+EMAIL_ADMIN: # 邮箱账号
+EMAIL_PASSWORD: # 授权码OR密码
+EMAIL_PORT: 465 # 端口
+
+# redis配置
+REDIS_HOST: # redis服务器
+REDIS_PORT: # redis端口
+
+# JWT参数
+JWT_FLAG: # JWT加密方式
+
+# 每页文章数量
+PAGE: 10
+
+# 个人邮箱
+MY_EMAIL: None

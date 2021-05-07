@@ -40,3 +40,10 @@ class Logout(BaseHandler, ABC):
         self.current_user = None
         self.clear_all_cookies()
         self.redirect("/")
+
+
+class Closed(BaseHandler, ABC):
+
+    async def get(self):
+        message = '制作中'
+        await self.render("error/404.html", message=message)
