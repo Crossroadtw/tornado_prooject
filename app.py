@@ -14,4 +14,5 @@ async def main():
     await shut_down.wait()
 
 if __name__ == '__main__':
+    # 这里开启项目（异步）
     tornado.ioloop.IOLoop.current().run_sync(main)

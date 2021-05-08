@@ -1,5 +1,5 @@
 class BaseResponse(object):
-    """返回数据"""
+    """定义返回数据"""
     SUCCESS_DATA = lambda data: {'status': 0, 'msg': '请求成功', 'data': data}
     UNKNOWN_ERROR = {'status': 101, 'msg': '未知错误', 'data': {}}
     PARAM_ERROR = {'status': 102, 'msg': '参数缺失', 'data': {}}

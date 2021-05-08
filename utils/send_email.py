@@ -13,6 +13,7 @@ def _format_addr(s):
 
 
 def sned_email(content, email=SETTING.MY_EMAIL):
+    # 发邮件
     msg = MIMEText(content, 'plain', 'utf-8')
     msg['From'] = _format_addr('来自 <%s>' % SETTING.EMAIL_ADMIN)
     msg['To'] = _format_addr('管理员 <%s>' % email)

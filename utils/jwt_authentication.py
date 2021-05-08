@@ -1,4 +1,5 @@
-import jwt, datetime
+import datetime
+import jwt
 
 from config import SETTING
 

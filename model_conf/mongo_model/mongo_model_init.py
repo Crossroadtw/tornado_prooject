@@ -1,8 +1,6 @@
 import time
 import datetime
 
-from utils import dict_to_object
-
 # 定义mongo模型
 # 用户
 tornado_user_db_model = {

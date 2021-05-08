@@ -7,6 +7,7 @@ from config import SETTING, BASE_PATH
 from model_conf.mongo_model import mongo_db
 from model_conf.redis_cur import redis_db
 
+
 # 多线程
 class Executor(ThreadPoolExecutor):
     _instance = None
@@ -18,9 +19,14 @@ class Executor(ThreadPoolExecutor):
         return cls._instance
 
 
+# 重写Application
 class Application(tornado.web.Application):
 
     def __init__(self, db, redis_cur):
+        """
+        :param db: 数据库游标
+        :param redis_cur: redis游标
+        """
         self.base_path = os.path.dirname(os.path.abspath(__file__))
         self.db = db
         self.redis_db = redis_cur
@@ -36,7 +42,7 @@ class Application(tornado.web.Application):
         )
         super().__init__(urls, **settings)
 
-    def get_urls(self):
+    def get_urls(self) -> list:
         """
         获取各个app的url
         :return:
@@ -52,11 +58,13 @@ class Application(tornado.web.Application):
         return app_urls
 
     @staticmethod
-    def get_templates_path():
+    def get_templates_path() -> str:
+        # 获取html路径
         return os.path.join(os.path.dirname(BASE_PATH), 'templates')
 
     @staticmethod
-    def get_static_path():
+    def get_static_path() -> str:
+        # 获取js路径
         return os.path.join(os.path.dirname(BASE_PATH), 'static')
 
 
